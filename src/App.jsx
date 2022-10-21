@@ -3,6 +3,7 @@ import { useState } from "react";
 import ListChart from "./components/ListChart";
 import { FaAngleDown } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import "./App.scss";
 
 import data from "./config/data.json";
@@ -14,12 +15,17 @@ function App() {
   const removeList = (id) => {
     const resultRemove = listShirt.filter((list) => list.id !== id);
     setListShirt(resultRemove);
+    toast.success("Item removed!");
+  };
+
+  const checkout = () => {
+    toast.success("Checkout!");
   };
 
   return (
     <>
       <header className="text-center p-6 bg-gray-100">
-        <h3 className="font-bold text-2xl">Shooping Chart</h3>
+        <h3 className="font-bold text-2xl">Shooping Cart</h3>
       </header>
       <div className="mx-auto px-2 md:px-32">
         <div className="bg-white p-4 grid grid-cols-1 md:grid-cols-[6fr_3fr] gap-6">
@@ -57,7 +63,10 @@ function App() {
                   </tbody>
                 </table>
 
-                <button className="bg-sky-600 text-white text-xs font-medium w-full uppercase hover:bg-sky-800">
+                <button
+                  className="bg-sky-600 text-white text-xs font-medium w-full uppercase hover:bg-sky-800"
+                  onClick={checkout}
+                >
                   Go to checkout
                 </button>
               </div>
