@@ -26,6 +26,13 @@ button{
     @apply py-3 rounded-md px-4 tracking-wide;
 }
 
+button:disabled{
+    @apply bg-gray-300;
+}
+
+button:disabled:hover{
+    @apply bg-gray-300;
+}
 
 @media (max-width: 480px){
     html{

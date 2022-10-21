@@ -30,7 +30,9 @@ function App() {
       <div className="mx-auto px-2 md:px-32">
         <div className="bg-white p-4 grid grid-cols-1 md:grid-cols-[6fr_3fr] gap-6">
           <div className="shadow-md rounded-md p-4">
-            <h3 className="text-lg font-bold mb-4">Cart (2) items</h3>
+            <h3 className="text-lg font-bold mb-4">
+              Cart ({listShirt.length}) items
+            </h3>
             {listShirt?.map((shirt, index) => (
               <ListChart item={shirt} key={index} remove={removeList} />
             ))}
@@ -66,6 +68,7 @@ function App() {
                 <button
                   className="bg-sky-600 text-white text-xs font-medium w-full uppercase hover:bg-sky-800"
                   onClick={checkout}
+                  disabled={!listShirt.length}
                 >
                   Go to checkout
                 </button>
